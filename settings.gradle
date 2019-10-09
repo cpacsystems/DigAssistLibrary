@@ -1,0 +1,4 @@
+include ':DigAssistTest', ':DigAssistLibrary'
+
+project(':DigAssistTest').projectDir = new File('app')
+project(':DigAssistLibrary').projectDir = new File('library')

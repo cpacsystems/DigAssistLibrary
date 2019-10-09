@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="se.cpacsystems.digassist.MainActivity">
+
+    <Button
+        android:id="@+id/button_boundary"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Boundary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/button_tools"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Tools"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_boundary"/>
+
+    <Button
+        android:id="@+id/button_active_control"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Active Control"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_tools"/>
+
+    <Button
+        android:id="@+id/button_service"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Connect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_active_control" />
+
+    <TextView
+        android:id="@+id/service_version"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/button_service"
+        app:layout_constraintTop_toTopOf="@+id/button_service"/>
+
+    <TextView
+        android:id="@+id/service_status_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="serviceStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_service"/>
+
+    <TextView
+        android:id="@+id/service_status"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/service_status_head"
+        app:layout_constraintTop_toTopOf="@+id/service_status_head"/>
+
+    <TextView
+        android:id="@+id/auto_mode_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="autoMode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/service_status_head"/>
+
+    <TextView
+        android:id="@+id/auto_mode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/auto_mode_head"
+        app:layout_constraintTop_toTopOf="@+id/auto_mode_head"/>
+
+    <TextView
+        android:id="@+id/fine_grading_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="fineGrading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auto_mode_head"/>
+
+    <TextView
+        android:id="@+id/fine_grading"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/fine_grading_head"
+        app:layout_constraintTop_toTopOf="@+id/fine_grading_head"/>
+
+    <TextView
+        android:id="@+id/bucket_angle_mode_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="bucketAngleMode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fine_grading_head"/>
+
+    <TextView
+        android:id="@+id/bucket_angle_mode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/bucket_angle_mode_head"
+        app:layout_constraintTop_toTopOf="@+id/bucket_angle_mode_head"/>
+
+    <TextView
+        android:id="@+id/active_tilt_mode_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="activeTiltMode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bucket_angle_mode_head"/>
+
+    <TextView
+        android:id="@+id/active_tilt_mode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/active_tilt_mode_head"
+        app:layout_constraintTop_toTopOf="@+id/active_tilt_mode_head"/>
+
+    <TextView
+        android:id="@+id/auto_active_status_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="autoActiveStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/active_tilt_mode_head"/>
+
+    <TextView
+        android:id="@+id/auto_active_status"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/auto_active_status_head"
+        app:layout_constraintTop_toTopOf="@+id/auto_active_status_head"/>
+
+    <TextView
+        android:id="@+id/has_control_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="hasControl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auto_active_status_head"/>
+
+    <TextView
+        android:id="@+id/has_control"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/has_control_head"
+        app:layout_constraintTop_toTopOf="@+id/has_control_head"/>
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Send"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/has_control_head" />
+
+    <TextView
+        android:id="@+id/send"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/button_send"
+        app:layout_constraintTop_toTopOf="@+id/button_send"/>
+
+</android.support.constraint.ConstraintLayout>
