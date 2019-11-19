@@ -1,17 +1,17 @@
 /**
- *    Copyright 2019 Cpac Systems AB
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * Copyright 2019 Cpac Systems AB
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package se.cpacsystems.digassist;
@@ -25,19 +25,19 @@ import android.os.RemoteException;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.lang.annotation.Retention;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
-public class DigAssistManager implements ActiveControlSignals{
+public class DigAssistManager implements ActiveControlSignals {
 
     private static final String LOG_TAG = DigAssistManager.class.getSimpleName();
 
     private static final int VERSION = 1;
 
     private boolean hasControl = false;
+    private int status = ServiceStatus.DISCONNECTED;
 
     private IDigAssist digAssistService = null;
     private DigAssistConnection digAssistConnection = null;
@@ -99,6 +99,19 @@ public class DigAssistManager implements ActiveControlSignals{
     public @interface ServiceStatus {
         int DISCONNECTED = 0;
         int CONNECTED = 1;
+        int WRONG_VERSION = 2;
+    }
+
+    @Retention(SOURCE)
+    @IntDef({
+            GNSS_USAGE.GLOBAL,
+            GNSS_USAGE.HEADING,
+            GNSS_USAGE.LOCAL
+    })
+    public @interface GNSS_USAGE {
+        int GLOBAL = 0;
+        int HEADING = 1;
+        int LOCAL = 2;
     }
 
     public DigAssistManager(@NonNull Context c) {
@@ -166,6 +179,7 @@ public class DigAssistManager implements ActiveControlSignals{
     public boolean connect(@NonNull DigAssistListener sl) {
         serviceListener = sl;
         digAssistConnection = new DigAssistConnection();
+
         Intent intent = new Intent("se.cpacsystems.guidance.service.GuidanceService.Bind");
         intent.setClassName("se.volvo.ce.doris.mcs2d", "se.cpacsystems.guidance.service.GuidanceService");
         context.startService(intent);
@@ -219,10 +233,12 @@ public class DigAssistManager implements ActiveControlSignals{
      */
     public boolean launchActivityActiveControl() {
         boolean res = false;
-        try {
-            digAssistService.launchActiveControlDialog();
-            res = true;
-        } catch (Exception e) {
+        if (status == ServiceStatus.CONNECTED) {
+            try {
+                digAssistService.launchActiveControlDialog();
+                res = true;
+            } catch (Exception e) {
+            }
         }
         return res;
     }
@@ -320,21 +336,22 @@ public class DigAssistManager implements ActiveControlSignals{
         public final void onServiceConnected(ComponentName name, IBinder boundService) {
             digAssistService = IDigAssist.Stub.asInterface(boundService);
             try {
-                digAssistService.registerActiveControlStatusListener(activeControlListener);
+                status = digAssistService.registerActiveControlStatusListener(activeControlListener, VERSION);
             } catch (RemoteException e) {
             }
             Log.d(LOG_TAG, "DigAssistService onServiceConnected");
             if (serviceListener != null) {
-                serviceListener.serviceStatus(ServiceStatus.CONNECTED);
+                serviceListener.serviceStatus(status);
             }
         }
 
         @Override
         public final void onServiceDisconnected(ComponentName name) {
             digAssistService = null;
+            status = ServiceStatus.DISCONNECTED;
             Log.d(LOG_TAG, "DigAssistService onServiceDisconnected");
             if (serviceListener != null) {
-                serviceListener.serviceStatus(ServiceStatus.DISCONNECTED);
+                serviceListener.serviceStatus(status);
             }
         }
     }

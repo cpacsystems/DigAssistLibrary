@@ -23,7 +23,7 @@ interface IDigAssist {
 
     int getVersion();
 
-    void registerActiveControlStatusListener(in IDigAssistListener listener);
+    int registerActiveControlStatusListener(in IDigAssistListener listener, in int version);
     void unregisterActiveControlStatusListener(in IDigAssistListener listener);
 
     void launchActiveControlDialog();
