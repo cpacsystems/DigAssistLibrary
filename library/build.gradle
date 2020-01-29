@@ -25,7 +25,7 @@ publish {
     userOrg = 'cpacsystems'
     groupId = 'se.cpacsystems.digassist'
     artifactId = 'digassist'
-    publishVersion = '0.0.2'
+    publishVersion = '0.0.3'
     repoName = 'DigAssistLibrary'
     desc = 'Library used by third party applications to access parts of Dig Assist'
     website = 'https://github.com/cpacsystems/DigAssistLibrary'

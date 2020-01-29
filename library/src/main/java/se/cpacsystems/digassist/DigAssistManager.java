@@ -74,6 +74,13 @@ public class DigAssistManager implements ActiveControlSignals {
         }
 
         @Override
+        public void backGradingMode(boolean value) {
+            if (serviceListener != null) {
+                serviceListener.backGradingMode(value);
+            }
+        }
+
+        @Override
         public void autoActiveStatus(boolean value) {
             if (serviceListener != null) {
                 serviceListener.autoActiveStatus(value);
@@ -156,6 +163,13 @@ public class DigAssistManager implements ActiveControlSignals {
          *  @param  value  false = Not active, true = active.
          */
         void activeTiltMode(boolean value);
+
+        /**
+         * Back grading mode status.
+         *
+         *  @param  value  false = Not active, true = active.
+         */
+        void backGradingMode(boolean value);
 
         /**
          * Auto active status.
