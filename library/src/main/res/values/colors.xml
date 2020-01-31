@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- The color white, equivalent to 0xffffffff -->
+    <color name="auto">#8cc63f</color>
+    <color name="white">#ffffffff</color>
+    <color name="icon_color_white">#E6E6E6</color>
+    <color name="icon_color_normal">#4E4F4F</color>
+    <color name="icon_color_active">#EBD018</color>
+</resources>

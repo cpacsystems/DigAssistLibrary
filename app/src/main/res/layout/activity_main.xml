@@ -188,4 +188,58 @@
         app:layout_constraintStart_toEndOf="@+id/button_send"
         app:layout_constraintTop_toTopOf="@+id/button_send"/>
 
+    <Button
+        android:id="@+id/button_pause"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="STOP TRANSMIT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_send" />
+
+    <TextView
+        android:id="@+id/pause"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="RUNNING"
+        app:layout_constraintStart_toEndOf="@+id/button_pause"
+        app:layout_constraintTop_toTopOf="@+id/button_pause"/>
+
+    <Button
+        android:id="@+id/button_sendspecific"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Send Specific"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_pause" />
+
+    <TextView
+        android:id="@+id/specifydata"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/button_sendspecific"
+        app:layout_constraintTop_toTopOf="@+id/button_sendspecific"/>
+
+    <Button
+        android:id="@+id/button_buckettip"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Bucket tip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_sendspecific" />
+
+    <TextView
+        android:id="@+id/buckettip"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button_buckettip"
+        app:layout_constraintTop_toTopOf="@+id/button_buckettip"/>
+
 </android.support.constraint.ConstraintLayout>

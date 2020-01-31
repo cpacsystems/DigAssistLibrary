@@ -38,7 +38,7 @@ public class ActiveControlData implements Parcelable, ActiveControlSignals {
     private static final int NO_OF_PARAMS = 13;
 
     /**
-     * Should be assigned to value when not defined
+     * Should be assigned to value when not defined.
      */
     public static final double UNDEFINED = 999999;
 
@@ -46,13 +46,31 @@ public class ActiveControlData implements Parcelable, ActiveControlSignals {
 
     private int activeToolRef = ToolRef.TOOL_REF_LEFT;
 
-    public ActiveControlData() {
-    }
 
+    /**
+     * Constructor for ActiveControlData.
+     *
+     * Sets all paramters to undefined
+     */
+    public ActiveControlData() {
+        for (int i = 0; i < NO_OF_PARAMS; i++) {
+            distsAndAngles[i] = UNDEFINED;
+        }
+    }
+    /**
+     * Constructor for ActiveControlData.
+     *
+     * @param in reads from parcel
+     */
     public ActiveControlData(Parcel in) {
         readFromParcel(in);
     }
 
+    /**
+     * Constructor for ActiveControlData
+     *
+     *  @param distsAndAngles set from array
+     */
     public ActiveControlData(double[] distsAndAngles) {
         this.distsAndAngles = distsAndAngles;
     }

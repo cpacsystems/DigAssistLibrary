@@ -26,6 +26,8 @@ interface IDigAssistListener {
 
     void activeTiltMode(boolean value);
 
+    void backGradingMode(boolean value);
+
     void autoActiveStatus(boolean value);
 
     void hasControl(boolean value);
