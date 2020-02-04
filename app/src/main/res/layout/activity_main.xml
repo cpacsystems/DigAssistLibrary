@@ -137,13 +137,30 @@
         app:layout_constraintTop_toTopOf="@+id/active_tilt_mode_head"/>
 
     <TextView
+        android:id="@+id/backgrading_mode_head"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="backgradingMode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/active_tilt_mode_head"/>
+
+    <TextView
+        android:id="@+id/backgrading_mode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        app:layout_constraintStart_toEndOf="@+id/backgrading_mode_head"
+        app:layout_constraintTop_toTopOf="@+id/backgrading_mode_head"/>
+
+    <TextView
         android:id="@+id/auto_active_status_head"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="autoActiveStatus"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/active_tilt_mode_head"/>
+        app:layout_constraintTop_toBottomOf="@+id/backgrading_mode_head"/>
 
     <TextView
         android:id="@+id/auto_active_status"
