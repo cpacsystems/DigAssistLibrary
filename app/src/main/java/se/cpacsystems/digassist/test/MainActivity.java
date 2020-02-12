@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView fineGradingMode;
     private TextView bucketAngleMode;
     private TextView activeTiltMode;
+    private TextView backgradingMode;
     private TextView autoActiveStatus;
     private TextView hasControl;
 
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         fineGradingMode = findViewById(R.id.fine_grading);
         bucketAngleMode = findViewById(R.id.bucket_angle_mode);
         activeTiltMode = findViewById(R.id.active_tilt_mode);
+        backgradingMode = findViewById(R.id.backgrading_mode);
         autoActiveStatus = findViewById(R.id.auto_active_status);
         hasControl = findViewById(R.id.has_control);
 
@@ -229,6 +231,16 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     activeTiltMode.setText("" + value);
+                }
+            });
+        }
+
+        @Override
+        public void backGradingMode(final boolean value) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    backgradingMode.setText("" + value);
                 }
             });
         }
