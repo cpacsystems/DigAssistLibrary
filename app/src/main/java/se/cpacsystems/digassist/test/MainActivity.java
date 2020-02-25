@@ -152,8 +152,19 @@ public class MainActivity extends AppCompatActivity {
         sendHandlerThread = new HandlerThread("sendHandlerThread");
         sendHandlerThread.start();
         sendHandler = new Handler(sendHandlerThread.getLooper());
-
+        if (shouldSend) {
+            digAssistManager.setOperatorInterrupt(false);
+        }
         sendHandler.post(sendRunnable);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (shouldSend) {
+            digAssistManager.setOperatorInterrupt(true);
+        }
     }
 
     private final Runnable sendRunnable = new Runnable() {

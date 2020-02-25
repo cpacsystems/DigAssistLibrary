@@ -11,6 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
@@ -20,6 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="CPACToken" android:value="YJ8lMURcSRuQz+chNiMPhRBvScvDbcZPfqGxKv2wRDtN1EVutD19Oj65hLieZRD/4qSCvSkqnFww9CdU+BE4NbkGA9Z+uL2UIx+NT0dhuexEBWPuZkCJLWcn1Q+vEAjlSoR5VfxboAHlXhHTgJjxDGnoNP5gG+9a/DDNTC4b/WN9cK+d0P2tZVbIRVf9xGPoU4OJTcMLuDctpXwvAU75g4ErWRqg2kQEUF8/M7ZFomk4E+eu0hZm9JadXTXtVVnJpcFi98GfiA3/ang4GKdlem1C15diKtYus0+RxKSq5UQ9pifj2IoBfQZkWpAChebQwygEJACCH3DH5SP5VhlZAw=="/>
     </application>
-
 </manifest>
