@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView fineGradingMode;
     private TextView bucketAngleMode;
     private TextView activeTiltMode;
-    private TextView backgradingMode;
+    private TextView backGradingMode;
+    private TextView bucketRecallStatus;
     private TextView autoActiveStatus;
     private TextView hasControl;
 
@@ -94,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
         fineGradingMode = findViewById(R.id.fine_grading);
         bucketAngleMode = findViewById(R.id.bucket_angle_mode);
         activeTiltMode = findViewById(R.id.active_tilt_mode);
-        backgradingMode = findViewById(R.id.backgrading_mode);
+        backGradingMode = findViewById(R.id.backgrading_mode);
+        bucketRecallStatus = findViewById(R.id.bucketrecall_status);
         autoActiveStatus = findViewById(R.id.auto_active_status);
         hasControl = findViewById(R.id.has_control);
 
@@ -251,7 +253,17 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    backgradingMode.setText("" + value);
+                    backGradingMode.setText("" + value);
+                }
+            });
+        }
+
+        @Override
+        public void bucketRecallStatus(final int value) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    bucketRecallStatus.setText("" + value);
                 }
             });
         }
