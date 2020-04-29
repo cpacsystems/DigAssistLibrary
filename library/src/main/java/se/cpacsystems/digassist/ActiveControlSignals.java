@@ -57,4 +57,16 @@ public interface ActiveControlSignals {
         int TOOL_REF_RIGHT = 1;
         int TOOL_REF_MIDDLE = 2;
     }
+
+    @Retention(SOURCE)
+    @IntDef({
+            BucketRecall.IGNORE,
+            BucketRecall.INACTIVE,
+            BucketRecall.ACTIVE
+    })
+    public @interface BucketRecall {
+        int IGNORE = 0;
+        int INACTIVE = 1;
+        int ACTIVE = 2;
+    }
 }
