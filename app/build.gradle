@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 'Cpac Systems AB:Cpac APIs 28:28'
 
     defaultConfig {
         applicationId "se.cpacsystems.digassist.test"
