@@ -81,6 +81,13 @@ public class DigAssistManager implements ActiveControlSignals {
         }
 
         @Override
+        public void bucketRecallStatus(int value) {
+            if (serviceListener != null) {
+                serviceListener.bucketRecallStatus(value);
+            }
+        }
+
+        @Override
         public void autoActiveStatus(boolean value) {
             if (serviceListener != null) {
                 serviceListener.autoActiveStatus(value);
@@ -170,6 +177,13 @@ public class DigAssistManager implements ActiveControlSignals {
          *  @param  value  false = Not active, true = active.
          */
         void backGradingMode(boolean value);
+
+        /**
+         * Bucket Recall status.
+         *
+         *  @param  value value {@link BucketRecall}.
+         */
+        void bucketRecallStatus(int value);
 
         /**
          * Auto active status.

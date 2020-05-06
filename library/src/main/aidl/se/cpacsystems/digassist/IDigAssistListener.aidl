@@ -28,6 +28,8 @@ interface IDigAssistListener {
 
     void backGradingMode(boolean value);
 
+    void bucketRecallStatus(int value);
+
     void autoActiveStatus(boolean value);
 
     void hasControl(boolean value);
