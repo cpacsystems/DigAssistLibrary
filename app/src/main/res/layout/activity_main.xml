@@ -276,4 +276,22 @@
         app:layout_constraintStart_toEndOf="@+id/button_buckettip"
         app:layout_constraintTop_toTopOf="@+id/button_buckettip"/>
 
+    <Button
+        android:id="@+id/button_function"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Function level"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_buckettip" />
+
+    <TextView
+        android:id="@+id/function"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="UNKNOWN"
+        app:layout_constraintStart_toEndOf="@+id/button_function"
+        app:layout_constraintTop_toTopOf="@+id/button_function"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView pause;
     private TextView specifyData;
     private TextView bucketTipInfo;
+    private TextView function;
 
     private double data = 1;
     private HandlerThread sendHandlerThread;
@@ -52,24 +53,24 @@ public class MainActivity extends AppCompatActivity {
 
         digAssistManager = new DigAssistManager(getApplicationContext());
 
-        Button buttonBoundary = findViewById(R.id.button_boundary);
-        buttonBoundary.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.button_boundary);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 digAssistManager.launchBoundaryDialog();
             }
         });
 
-        Button buttonTools = findViewById(R.id.button_tools);
-        buttonTools.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button_tools);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 digAssistManager.launchToolsDialog();
             }
         });
 
-        Button buttonActiveControl = findViewById(R.id.button_active_control);
-        buttonActiveControl.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button_active_control);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 digAssistManager.launchActivityActiveControl();
@@ -100,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
         autoActiveStatus = findViewById(R.id.auto_active_status);
         hasControl = findViewById(R.id.has_control);
 
-        Button buttonSend = findViewById(R.id.button_send);
-        buttonSend.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button_send);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 data++;
@@ -111,9 +112,8 @@ public class MainActivity extends AppCompatActivity {
         });
         send = findViewById(R.id.send);
 
-
-        Button pauseButton = findViewById(R.id.button_pause);
-        pauseButton.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button_pause);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 shallPause = !shallPause;
@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
         });
         pause = findViewById(R.id.pause);
 
-        Button specifyButton = findViewById(R.id.button_sendspecific);
-        specifyButton.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button_sendspecific);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 specificData = !specificData;
@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
         });
         specifyData = findViewById(R.id.specifydata);
 
-        Button bucketTipButton = findViewById(R.id.button_buckettip);
-        bucketTipButton.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button_buckettip);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bucketTip = bucketTip++ >= ActiveControlData.ToolRef.TOOL_REF_MIDDLE ? ActiveControlData.ToolRef.TOOL_REF_LEFT : bucketTip;
@@ -145,6 +145,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bucketTipInfo = findViewById(R.id.buckettip);
+
+        button = findViewById(R.id.button_function);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (digAssistManager.getFunctionLevel()) {
+                    case DigAssistManager.FunctionLevel.NONE:
+                        function.setText("NONE");
+                        break;
+                    case DigAssistManager.FunctionLevel.BOUNDARY:
+                        function.setText("BOUNDARY");
+                        break;
+                    case DigAssistManager.FunctionLevel.ACTIVE_CONTROL:
+                        function.setText("ACTIVE CONTROL");
+                        break;
+                    default:
+                        function.setText("UNKNOWN");
+                        break;
+                }
+            }
+        });
+        function = findViewById(R.id.function);
     }
 
     @Override

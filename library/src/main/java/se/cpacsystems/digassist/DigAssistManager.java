@@ -34,7 +34,7 @@ public class DigAssistManager implements ActiveControlSignals {
 
     private static final String LOG_TAG = DigAssistManager.class.getSimpleName();
 
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
     private boolean hasControl = false;
     private int status = ServiceStatus.DISCONNECTED;
@@ -126,6 +126,20 @@ public class DigAssistManager implements ActiveControlSignals {
         int GLOBAL = 0;
         int HEADING = 1;
         int LOCAL = 2;
+    }
+
+    @Retention(SOURCE)
+    @IntDef({
+            FunctionLevel.UNKNOWN,
+            FunctionLevel.NONE,
+            FunctionLevel.BOUNDARY,
+            FunctionLevel.ACTIVE_CONTROL
+    })
+    public @interface FunctionLevel {
+        int UNKNOWN = -1;
+        int NONE = 0;
+        int BOUNDARY = 1;
+        int ACTIVE_CONTROL = 2;
     }
 
     public DigAssistManager(@NonNull Context c) {
@@ -357,6 +371,20 @@ public class DigAssistManager implements ActiveControlSignals {
         } else {
             throw new RuntimeException("Tried to send control data without control");
         }
+    }
+
+    /**
+     * Get function level.
+     *
+     * @return Function level.
+     */
+    public @FunctionLevel int getFunctionLevel() {
+        int level = FunctionLevel.UNKNOWN;
+        try {
+            level = digAssistService.getFunctionLevel();
+        } catch (Exception e) {
+        }
+        return level;
     }
 
     private class DigAssistConnection implements ServiceConnection {

@@ -35,4 +35,6 @@ interface IDigAssist {
     void setActiveToolRef(in int value);
 
     void setOperatorInterrupt(in boolean value);
+
+    int getFunctionLevel();
 }
